@@ -2,6 +2,14 @@ import React, { useState, useEffect } from 'react'
 import Head from 'next/head'
 import { useTheme } from 'next-themes'
 import { useRouter } from 'next/router'
+import { motion } from 'framer-motion'
+import NoScrollLink from '../components/NoScrollLink'
+
+const variants = {
+    hidden: { opacity: 0, x: 0, y: -10 },
+    enter: { opacity: 1, x: 0, y: 0 },
+    exit: { opacity: 0, x: 0, y: -10 },
+}
 
 const Container = (props) => {
     const [mounted, setMounted] = useState(false)
@@ -25,6 +33,12 @@ const Container = (props) => {
             </Head>
             <div className="flex flex-col min-h-screen gap-y-10">
                 <nav>
+                    <NoScrollLink href={'/'} passHref>
+                        Home
+                    </NoScrollLink>
+                    <NoScrollLink href={'/about'} passHref>
+                        About
+                    </NoScrollLink>
                     <button
                         onClick={() =>
                             setTheme(
@@ -35,9 +49,18 @@ const Container = (props) => {
                         Toggle Theme
                     </button>
                 </nav>
-                <main className="flex flex-col" id="content">
+                <motion.main
+                    initial="hidden"
+                    animate="enter"
+                    exit="exit"
+                    variants={variants}
+                    transition={{ type: 'linear' }}
+                    className="flex flex-col"
+                    id="content"
+                >
                     {children}
-                </main>
+                </motion.main>
+
                 <footer>Footer</footer>
             </div>
         </div>
