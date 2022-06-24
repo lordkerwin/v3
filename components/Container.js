@@ -3,12 +3,13 @@ import Head from 'next/head'
 import { useTheme } from 'next-themes'
 import { useRouter } from 'next/router'
 import { motion } from 'framer-motion'
+
 import NoScrollLink from '../components/NoScrollLink'
 
 const variants = {
-    hidden: { opacity: 0, x: 0, y: -10 },
-    enter: { opacity: 1, x: 0, y: 0 },
-    exit: { opacity: 0, x: 0, y: -10 },
+    hidden: { opacity: 0, y: -20 },
+    enter: { opacity: 1, y: 0 },
+    exit: { opacity: 0, y: 30 },
 }
 
 const Container = (props) => {
@@ -27,7 +28,7 @@ const Container = (props) => {
     }
 
     return (
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
             <Head>
                 <title>{meta.title}</title>
             </Head>
@@ -38,6 +39,9 @@ const Container = (props) => {
                     </NoScrollLink>
                     <NoScrollLink href={'/about'} passHref>
                         About
+                    </NoScrollLink>
+                    <NoScrollLink href={'/articles'} passHref>
+                        Articles
                     </NoScrollLink>
                     <button
                         onClick={() =>
@@ -54,9 +58,8 @@ const Container = (props) => {
                     animate="enter"
                     exit="exit"
                     variants={variants}
-                    transition={{ type: 'linear' }}
+                    transition={{ type: 'linear', duration: 0.2 }}
                     className="flex flex-col"
-                    id="content"
                 >
                     {children}
                 </motion.main>
