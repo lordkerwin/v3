@@ -2,19 +2,19 @@ module.exports = {
     email: "hey@seankerwin.dev",
     nav: [
         {
-            text: "About",
+            name: "About",
             url: "/about",
         },
         {
-            text: "Projects",
+            name: "Projects",
             url: "/projects",
         },
         {
-            text: "Articles",
+            name: "Articles",
             url: "/articles",
         },
         {
-            text: "Contact",
+            name: "Contact",
             url: "/contact",
         },
     ],
