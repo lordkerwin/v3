@@ -2,7 +2,38 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer base {
+    :root {
+        --background: 255 255 255;
+        --foreground: 0 0 0;
+        --accent-1: 250 250 250;
+        --accent-2: 234 234 234;
+        --accent-3: 153 153 153;
+        --accent-4: 136 136 136;
+        --accent-5: 102 102 102;
+        --accent-6: 68 68 68;
+        --accent-7: 51 51 51;
+        --accent-8: 17 17 17;
+        --secondary: 255 98 84;
+    }
+
+    .dark {
+        --background: 0 0 0;
+        --foreground: 255 255 255;
+        --accent-1: 17 17 17;
+        --accent-2: 51 51 51;
+        --accent-3: 68 68 68;
+        --accent-4: 102 102 102;
+        --accent-5: 136 136 136;
+        --accent-6: 153 153 153;
+        --accent-7: 234 234 234;
+        --accent-8: 250 250 250;
+        --secondary: 255 98 84;
+    }
+}
+
 body {
+    @apply text-foreground bg-background;
 }
 
 .container {

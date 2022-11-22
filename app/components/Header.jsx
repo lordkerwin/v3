@@ -2,12 +2,12 @@ import Link from "next/link";
 
 const Header = () => {
     return (
-        <header className="py-10 w-full bg-black">
+        <header className="py-10 w-full bg-foreground/5">
             <div className="container">
                 <div>
                     <Link href={"/"}>
                         <svg
-                            className="ml-10 w-12 text-white"
+                            className="w-12 text-secondary hover:text-secondary/60 transition"
                             viewBox="119.52 125.981 193.177 183.558"
                         >
                             <path
